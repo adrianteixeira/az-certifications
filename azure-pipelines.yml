@@ -25,10 +25,19 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- task: Docker@2
-  displayName: Build an image
+- task: DockerInstaller@0
   inputs:
-    containerRegistry: 'acrapidemoaz204'
-    repository: './az204/demo-02'
+    dockerVersion: 'latest'
+
+# Autenticação com Username and Password
+- task: Docker@2
+  displayName: Build and Push Docker image
+  inputs:
+    containerRegistry: 'OtherDockerRegistry'
+    repository: 'mywebapiproject' # Nome do repositório no ACR
     command: 'buildAndPush'
     Dockerfile: './az-204/demo-02/MyWebApiProject/Dockerfile'
+    tags: |
+      $(Build.BuildId)
+    containerRegistryType: 'Others'
+    dockerRegistryEndpoint: 'DockerRegistryConnection' # Nome da conexão de serviço do Docker Registry
