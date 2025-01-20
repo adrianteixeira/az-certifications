@@ -9,8 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+parameters:
+  solutionPath: '$(Build.SourcesDirectory)/az-204/demo-02/MyWebApiProject/*.sln'
+
 variables:
-  solution: '*.sln'
+  solution: ${{ parameters.solutionPath }}
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
