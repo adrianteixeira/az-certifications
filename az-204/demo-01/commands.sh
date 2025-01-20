@@ -1,6 +1,9 @@
 # Comando para fazer login no Azure
 az login
 
+# Comando para obter o tenantId
+az account show --query tenantId --output tsv
+
 # Comando para iniciar um novo projeto de funções do Azure
 func init MyFunctionProj --worker-runtime dotnet
 

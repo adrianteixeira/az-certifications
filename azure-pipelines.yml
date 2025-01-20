@@ -24,3 +24,11 @@ steps:
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- task: Docker@2
+  displayName: Build an image
+  inputs:
+    containerRegistry: 'acrapidemoaz204'
+    repository: './az204/demo-02'
+    command: 'buildAndPush'
+    Dockerfile: './az-204/demo-02/MyWebApiProject/Dockerfile'
