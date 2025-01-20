@@ -10,10 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 parameters:
-  solutionPath: '$(Build.SourcesDirectory)/az-204/demo-02/MyWebApiProject/*.sln'
+  solution: './az-204/demo-02/*.sln'
 
 variables:
-  solution: ${{ parameters.solutionPath }}
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
