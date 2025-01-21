@@ -8,9 +8,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Set the WebRootPath
-app.UseWebRoot("wwwroot");
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
