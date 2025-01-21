@@ -27,7 +27,7 @@ steps:
 
 - task: DockerInstaller@0
   inputs:
-    dockerVersion: 'latest'
+    dockerVersion: '20.10.7' # Versão específica do Docker
 
 # Autenticação com Username and Password
 - task: Docker@2
