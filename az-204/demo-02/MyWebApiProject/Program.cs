@@ -24,6 +24,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+// Update the application to listen on port 8080
+app.Urls.Add("http://*:8080");
 
 var summaries = new[]
 {
