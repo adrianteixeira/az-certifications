@@ -33,11 +33,10 @@ steps:
 - task: Docker@2
   displayName: Build and Push Docker image
   inputs:
-    containerRegistry: 'OtherDockerRegistry'
+    containerRegistry: 'DockerRegistryConnection' # Nome da conexão de serviço do Docker Registry
     repository: 'mywebapiproject' # Nome do repositório no ACR
     command: 'buildAndPush'
     Dockerfile: './az-204/demo-02/MyWebApiProject/Dockerfile'
     tags: |
       $(Build.BuildId)
     containerRegistryType: 'Others'
-    dockerRegistryEndpoint: 'DockerRegistryConnection' # Nome da conexão de serviço do Docker Registry
