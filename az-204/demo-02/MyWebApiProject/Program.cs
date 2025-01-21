@@ -27,6 +27,21 @@ app.UseRouting();
 // Update the application to listen on port 8080
 app.Urls.Add("http://*:8080");
 
+app.Lifetime.ApplicationStarted.Register(() =>
+{
+    Console.WriteLine("Application started");
+});
+
+app.Lifetime.ApplicationStopping.Register(() =>
+{
+    Console.WriteLine("Application stopping");
+});
+
+app.Lifetime.ApplicationStopped.Register(() =>
+{
+    Console.WriteLine("Application stopped");
+});
+
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
