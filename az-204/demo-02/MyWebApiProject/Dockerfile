@@ -7,10 +7,10 @@ EXPOSE 443
 # Use the SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
-COPY ["MyWebApiProject/MyWebApiProject.csproj", "MyWebApiProject/"]
-RUN dotnet restore "MyWebApiProject/MyWebApiProject.csproj"
+COPY ["MyWebApiProject.csproj", "./"]
+RUN dotnet restore "MyWebApiProject.csproj"
 COPY . .
-WORKDIR "/src/MyWebApiProject"
+WORKDIR "/src"
 RUN dotnet build "MyWebApiProject.csproj" -c Release -o /app/build
 
 FROM build AS publish
